@@ -2,9 +2,7 @@ package com.onilson.crud_spring.controller;
 
 import com.onilson.crud_spring.model.Course;
 import com.onilson.crud_spring.repository.CourseRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +19,11 @@ public class CourseController {
     @GetMapping
     public List<Course> list() {
         return courseRepository.findAll();
+    }
+
+    @PostMapping
+    public Course save(@RequestBody Course c) {
+        return courseRepository.save(c);
+        //System.out.println(c.getName());
     }
 }

@@ -16,8 +16,12 @@ export class CoursesService {
     return this.httpClient.get<Course[]>(this.API)
     .pipe(
       first(),
-      delay(1000),
+      //delay(1000),
       tap(courses => console.log(courses))
     );
+  }
+
+  save(record: Course){
+    return this.httpClient.post(this.API, record);//.pipe(first());
   }
 }
